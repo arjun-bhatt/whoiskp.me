@@ -1,14 +1,168 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>
-        cs52.me
-    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kashmir Voices — Essays & Writing by Kashmiris</title>
+    <meta name="description" content="A home for essays, reportage, poetry, and voices from Kashmir." />
+    <link rel="stylesheet" href="styles.css">
+    <!-- Optional: swap to a font you prefer -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    will this be a blog for all KPs?
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a href="#" class="brand" aria-label="Kashmir Voices home">
+                <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M12 2C8 2 4 5 4 9c0 6 8 13 8 13s8-7 8-13c0-4-4-7-8-7z" />
+                </svg>
+                <span class="brand-text">Kashmir Voices</span>
+            </a>
+
+            <nav class="main-nav" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Essays</a></li>
+                    <li><a href="#">Poetry</a></li>
+                    <li><a href="#">Dispatches</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a class="cta" href="#subscribe">Subscribe</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Voices from the Valley</h1>
+                    <p class="lede">Longform essays, reportage, and poetry by Kashmiris — written from home and in the
+                        diaspora. Independent, human, and rooted.</p>
+                    <p class="meta">
+                        <a href="#featured" class="link-button">Read featured piece</a>
+                        <a href="#about" class="muted-link">Learn about the project</a>
+                    </p>
+                </div>
+                <div class="hero-image" aria-hidden="true">
+                    <!-- decorative image placeholder -->
+                    <div class="img-placeholder">featured image</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured" class="container featured">
+            <article class="post featured-post" aria-labelledby="featured-title">
+                <div class="post-thumb">
+                    <div class="thumb-placeholder">Photo</div>
+                </div>
+                <div class="post-body">
+                    <h2 id="featured-title">Remembering Srinagar: An Essay</h2>
+                    <p class="byline">By <strong>Fatima Khan</strong> · Jul 12, 2025 · Essay</p>
+                    <p class="excerpt">A personal recollection of streets, conversations, and the small rituals that
+                        stitch a city together.</p>
+                    <p><a class="read-more" href="#">Read full essay →</a></p>
+                </div>
+            </article>
+        </section>
+
+        <section class="container posts-grid" aria-label="Recent posts">
+            <!-- Example post cards. Replace these with server-rendered or CMS content -->
+            <article class="post-card">
+                <div class="card-thumb" role="img" aria-label="thumbnail image">Img</div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">On the Language of Home</a></h3>
+                    <p class="card-meta">By A. Mir · Jun 30, 2025 · Poetry</p>
+                    <p class="card-excerpt">Why Kashmiri phrases don't always translate — and why we shouldn't make them
+                        try.</p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="card-thumb" role="img" aria-label="thumbnail image">Img</div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">Maps, Borders, and Memory</a></h3>
+                    <p class="card-meta">By R. Bhat · May 18, 2025 · Reportage</p>
+                    <p class="card-excerpt">A field report on families, migration, and how maps fail the people they
+                        claim to describe.</p>
+                </div>
+            </article>
+
+            <article class="post-card">
+                <div class="card-thumb" role="img" aria-label="thumbnail image">Img</div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">Tea, Conversation, Resistance</a></h3>
+                    <p class="card-meta">By S. Wani · Apr 06, 2025 · Essay</p>
+                    <p class="card-excerpt">How everyday acts become acts of meaning in a place under scrutiny.</p>
+                </div>
+            </article>
+
+            <!-- add more post-card articles as needed -->
+        </section>
+
+        <aside class="container sidebar" aria-label="Sidebar">
+            <div class="widget">
+                <h4>About</h4>
+                <p>Kashmir Voices publishes essays, poetry, and reporting by Kashmiris. We prioritize lived experience,
+                    depth, and care.</p>
+            </div>
+
+            <div id="subscribe" class="widget">
+                <h4>Subscribe</h4>
+                <form class="subscribe-form" action="#" method="post" aria-label="Subscribe to newsletter">
+                    <label for="email" class="visually-hidden">Email address</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    <button type="submit">Join</button>
+                </form>
+                <p class="tiny">No spam. Unsubscribe any time.</p>
+            </div>
+
+            <div class="widget">
+                <h4>Tags</h4>
+                <div class="tags">
+                    <a href="#" class="tag">Essays</a>
+                    <a href="#" class="tag">Poetry</a>
+                    <a href="#" class="tag">Dispatches</a>
+                    <a href="#" class="tag">Culture</a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Kashmir Voices — All rights reserved.</p>
+            <nav class="footer-nav" aria-label="Footer links">
+                <a href="#">Contact</a>
+                <a href="#">Editorial</a>
+                <a href="#">Contribute</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // small UX niceties (no external JS needed)
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Progressive enhancement example: focus visible outline for keyboard users
+        (function () {
+            function handleFirstTab(e) {
+                if (e.key === 'Tab') {
+                    document.documentElement.classList.add('user-is-tabbing');
+                    window.removeEventListener('keydown', handleFirstTab);
+                }
+            }
+            window.addEventListener('keydown', handleFirstTab);
+        })();
+    </script>
 </body>
 
 </html>
