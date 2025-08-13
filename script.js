@@ -10,10 +10,10 @@ async function loadPostList() {
     posts.forEach(post => {
         const article = document.createElement('article');
         article.innerHTML = `
-            <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
-            <p><strong>${post.author}</strong> — ${post.date}</p>
-            <p>${post.excerpt}</p>
-        `;
+        <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
+        <p><strong>${post.author}</strong> — ${post.date}</p>
+        <p>${post.excerpt}</p>
+      `;
         container.appendChild(article);
     });
 }
@@ -31,10 +31,11 @@ async function loadSinglePost() {
     }
 
     container.innerHTML = `
-        <article>
-            <h2>${post.title}</h2>
-            <p><strong>${post.author}</strong> — ${post.date}</p>
-            ${post.content}
-        </article>
+      <a class="back-button" href="index.html">&larr; Back to Home</a>
+      <article>
+        <h2>${post.title}</h2>
+        <p><strong>${post.author}</strong> — ${post.date}</p>
+        ${post.content}
+      </article>
     `;
 }

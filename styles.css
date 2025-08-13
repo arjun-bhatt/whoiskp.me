@@ -1,4 +1,4 @@
-/* General resets */
+/* Reset & base */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #f8f9fa;
@@ -8,7 +8,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
 header {
     background: #1a3c34;
     color: white;
@@ -32,22 +31,98 @@ nav a {
     font-weight: 500;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     text-decoration: underline;
+    color: #f0f0f0;
 }
 
-/* Blog container */
-#blog-container {
+/* Container max width */
+main,
+main#blog-container,
+main#post-container {
     max-width: 800px;
     margin: 2rem auto;
     padding: 0 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Blog post card */
-article {
-    background: white;
+/* Blog post cards (homepage) */
+#blog-container article {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#blog-container article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#blog-container h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+#blog-container h2 a {
+    text-decoration: none;
+    color: #1a3c34;
+}
+
+#blog-container h2 a:hover {
+    color: #297b6d;
+}
+
+#blog-container p {
+    margin: 0.5rem 0;
+}
+
+/* Single post article */
+#post-container article {
+    padding: 2rem;
+}
+
+#post-container h2 {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+#post-container p strong {
+    font-weight: 700;
+}
+
+/* Back to Home button */
+.back-button {
+    display: inline-block;
+    margin: 1rem 0 2rem 0;
+    padding: 0.5rem 1rem;
+    background: #1a3c34;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background: #297b6d;
+}
+
+/* About page */
+.about-section {
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #e9ecef;
+    color: #555;
+    margin-top: 2rem;
+}
