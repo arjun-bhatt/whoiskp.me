@@ -1,5 +1,6 @@
 console.log('starting up!');
 import $ from 'jquery';
+import './style.scss';
 
 let time = 0;
 
