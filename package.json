@@ -1,0 +1,20 @@
+{
+  "name": "whoiskp.me",
+  "version": "1.0.0",
+  "description": "base starterpack applied to KP project",
+  "homepage": "https://github.com/arjun-bhatt/whoiskp.me#readme",
+  "bugs": {
+    "url": "https://github.com/arjun-bhatt/whoiskp.me/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjun-bhatt/whoiskp.me.git"
+  },
+  "license": "ISC",
+  "author": "arjun",
+  "type": "commonjs",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
