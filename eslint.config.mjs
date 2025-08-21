@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
 import importPlugin from 'eslint-plugin-import';
+// import reactPlugin from 'eslint-plugin-react';
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,9 +21,10 @@ const compat = new FlatCompat({
 
 export default defineConfig([{
     extends: compat.extends('eslint:recommended', 'plugin:react/recommended'),
+    files: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.{js,jsx}'],
 
     plugins: {
-        react, 
+        react: react,
         import: importPlugin
     },
 
@@ -36,9 +39,12 @@ export default defineConfig([{
 
         parserOptions: {
             requireConfigFile: false,
-                    'ecmaVersion': 2023
-
-            
+            'ecmaVersion': 'latest',
+            ecmaFeatures: {jsx: true},
+            sourceType: 'module',
+            babelOptions: {
+                'presets': ['@babel/preset-react']
+        },
         },
     },
 
@@ -65,6 +71,16 @@ export default defineConfig([{
         'max-len': ['error', 200],
         'no-extra-parens': 0,
         'no-restricted-syntax': [0, 'DebuggerStatement'],
-        'no-debugger': 'warn'
+        'no-debugger': 'warn',
+         'react/jsx-uses-react': 2,
+        'react/jsx-uses-vars': 2,
+        'react/react-in-jsx-scope': 2,
+        'react/prop-types': 0,
+        'react/destructuring-assignment': 0,
+        'react/jsx-first-prop-new-line': 0,
+        'react/jsx-filename-extension': 0,
+        'jsx-a11y/click-events-have-key-events': 0,
+        'jsx-a11y/no-noninteractive-element-interactions': 0,
+        'react/jsx-one-expression-per-line':0
     },
 }]);
