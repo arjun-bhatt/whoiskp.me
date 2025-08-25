@@ -58,6 +58,7 @@ const App = (props) => {
 
 			</Routes>
       </div>
+      {htmlBoilerPlate()}
     </BrowserRouter>
   );
 };
@@ -102,6 +103,24 @@ export async function getSinglePostJSX(postId) {
         </>
     );
 }
+
+const header = () => {return(
+<header>
+        <h1>Kashmir Voices</h1>
+        <nav>
+            <a href="index.html" className="active">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+);};
+
+const footer = () => {return( <footer>
+        <p>&copy; 2025 Kashmir Voices</p>
+    </footer>);};
+
+const htmlBoilerPlate = () => {
+  return (header(), footer());
+};
 
 
 const root = createRoot(document.getElementById('main'));
