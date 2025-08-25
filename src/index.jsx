@@ -3,14 +3,26 @@ import { createRoot } from 'react-dom/client';
 import './style.scss';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router';
 import { useParams } from 'react-router';
+import './store';
+import Counter from './components/counter.jsx';
+import Controls from './components/controls.jsx';
 
 
 const About = (props) => {
   return <div> All there is to know about me </div>;
 };
 const Welcome = (props) => {
-  return <div>Welcome</div>;
+  return (
+    <div>
+      <div>
+        <Counter />
+        <Controls />
+      </div>
+    <p>Welcome</p>
+    </div>
+  );
 };
+
 const Test = (props) => {
   const { id } = useParams();
   return <div> ID: {id} </div>;
