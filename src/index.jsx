@@ -62,6 +62,47 @@ const App = (props) => {
   );
 };
 
+// Fetch posts as before
+export async function fetchPosts() {
+    const res = await fetch('posts.json');
+    return res.json();
+}
+
+// Returns an array of JSX articles for the post list
+export async function getPostListJSX() {
+    const posts = await fetchPosts();
+    return posts.map(post => (
+        <article key={post.id}>
+            <h2>
+                <a href={`post.html?id=${post.id}`}>{post.title}</a>
+            </h2>
+            <p><strong>{post.author}</strong> — {post.date}</p>
+            <p>{post.excerpt}</p>
+        </article>
+    ));
+}
+
+// Returns JSX for a single post (or not found message)
+export async function getSinglePostJSX(postId) {
+    const posts = await fetchPosts();
+    const post = posts.find(p => p.id === postId);
+
+    if (!post) {
+        return <p>Post not found.</p>;
+    }
+
+    return (
+        <>
+            <a className="back-button" href="index.html">&larr; Back to Home</a>
+            <article>
+                <h2>{post.title}</h2>
+                <p><strong>{post.author}</strong> — {post.date}</p>
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            </article>
+        </>
+    );
+}
+
 
 const root = createRoot(document.getElementById('main'));
 root.render(<App />);
