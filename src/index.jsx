@@ -6,6 +6,9 @@ import { useParams } from 'react-router';
 import './store';
 import Counter from './components/counter.jsx';
 import Controls from './components/controls.jsx';
+import Posts from './components/posts.jsx';
+import Post from './components/post.jsx';
+import NewPost from './components/newpost.jsx';
 
 
 const About = (props) => {
@@ -41,6 +44,8 @@ const Nav = (props) => {
         <li><NavLink to="/test/id1">test id1</NavLink></li>
         <li><NavLink to="/test/id2">test id2</NavLink></li>
       </ul>
+      <NavLink to="/">My Super Awesome Blog</NavLink>
+      <NavLink to="/posts/new">new post</NavLink>
     </nav>
   );
 };
@@ -50,7 +55,11 @@ const App = (props) => {
     <BrowserRouter>
       <div>
         <Nav />
-            <Routes>
+        <Routes>
+  <Route path="/" element={<Posts/>} />
+  <Route path="/posts/new" element={<NewPost />} />
+  <Route path="/posts/:postID" element={<Post/>} />
+  <Route path="*" element={<div>post not found </div>} />
                 <Route path="/" element={<Welcome/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/test/:id" element={<Test/>} />
