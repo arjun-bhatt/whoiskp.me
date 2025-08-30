@@ -18,6 +18,8 @@ function Post(props) {
     const [isEditing, startEditing] = useState(false);
     const [author, setAuthor] = useState(post.author);
 
+    const prod = true;
+
     const navigate = useNavigate();
     
     const onDeleteClick = async () => {
@@ -26,6 +28,7 @@ function Post(props) {
     };
   
     const renderButtons = () => {
+      if (!prod) {
       return(
         <div>
           <button onClick={onDeleteClick}>Delete Post</button>
@@ -39,7 +42,7 @@ function Post(props) {
             startEditing(!isEditing);}}>
               {isEditing ? 'Save Post' : 'Edit Post'}</button>
         </div>
-      );
+      ); }
     };
 
     const renderComments = () => {
