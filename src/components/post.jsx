@@ -13,6 +13,7 @@ function Post(props) {
     const [content, setContent] = useState(post.content);
     const [coverURL, setCoverURL] = useState(post.coverURL);
     const [comments, setComments] = useState(post.comments);
+    const [commentDraftAuthor, setCommentDraftAuthor] = useState('Anonymous Commenter');
     const [commentDraft, setCommentDraft] = useState('my comment here');
     const [isEditing, startEditing] = useState(false);
     const [author, setAuthor] = useState(post.author);
@@ -45,8 +46,9 @@ function Post(props) {
       return (
         comments.map( comment => {
           return (
-            <div key={comment}>
-              {comment}
+            <div key={comment._id}>
+              {comment.body}
+              {comment.author}
             </div>
           );}
         )
@@ -54,9 +56,11 @@ function Post(props) {
     };
 
     const handleCommentSubmission = async () => {
-      console.log('submitting comment, we got comments', comments, 'commentDraft', commentDraft, 'and our new list', comments.concat(commentDraft));
-      updatePost({id: postID, comments: comments.concat(commentDraft)});
-      setComments(comments.concat(commentDraft));
+      // console.log('submitting comment, we got comments', comments, 'commentDraft', commentDraft, 'and our new list', comments.concat(commentDraft));
+      const newCommentsArray = comments.concat({body: commentDraft, author: commentDraftAuthor});
+      console.log('newCommentsarray =', newCommentsArray);
+      await updatePost({id: postID, comments: newCommentsArray});
+      setComments(newCommentsArray);
     };
 
     if (!post) {
@@ -90,6 +94,7 @@ function Post(props) {
         {renderComments()}
         
         <input value={commentDraft} onChange={e => setCommentDraft(e.target.value)}/>
+        <input value={commentDraftAuthor} onChange={e => setCommentDraftAuthor(e.target.value)} />
         <button onClick={handleCommentSubmission}> save comment</button>
       </div>
     );
