@@ -45,8 +45,9 @@ const newPost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="newpost-form" onSubmit={handleSubmit}>
       <input
+        className="newpost-title"
         type="text"
         placeholder="Title"
         value={title}
@@ -54,23 +55,26 @@ const newPost = () => {
         required
       />
       <input 
+        className="newpost-author"
         type="text"
         placeholder={defaultAuthor}
         value={author}
         onChange={e => setAuthor(e.target.value)}
       />
       <input
+        className="newpost-content"
         placeholder="Content"
         value={content}
         onChange={e => setContent(e.target.value)}
         required
       />
       <textarea 
+        className="newpost-coverurl"
         placeholder={defaultURL}
         value={coverURL}
         onChange={e => setCoverURL(e.target.value)}
       />
-      <button type="submit">Create Post</button>
+      <button className="newpost-submit-btn" type="submit">Create Post</button>
     </form>
   );
 };

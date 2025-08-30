@@ -8,8 +8,8 @@ function Counter(props) {
 
   const count = useStore((state) => state.count);
   return (
-    <div>
-      Current Count: {count}
+    <div className="counter-container">
+      <span className="counter-label">Current Count:</span> <span className="counter-value">{count}</span>
     </div>
   );
 }

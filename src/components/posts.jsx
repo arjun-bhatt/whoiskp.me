@@ -14,20 +14,19 @@ function Posts(props) {
     const renderPosts = () => {
         return allPosts.map( post => {
              return (
-
-                <div key={post.id}>
-                    <NavLink to={`posts/${post._id}`}>
-                    <div>{post.title}</div>
+                <div className="post-list-item" key={post.id}>
+                    <NavLink className="post-list-link" to={`posts/${post._id}`}>
+                        <div className="post-list-title">{post.title}</div>
                     </NavLink>
                 </div>
             );});
     };
 
-	return (
-		<div>
+    return (
+        <div className="posts-list-container">
             {renderPosts() }
         </div>
-        );
-    }
+    );
+}
 
 export default Posts;

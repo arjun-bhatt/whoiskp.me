@@ -67,40 +67,41 @@ function Post(props) {
     };
 
     if (!post) {
-      return (<div>Post not found</div>);
+      return (<div className="post-not-found">Post not found</div>);
     }
 
     if (isEditing) {
       // so we can edit title, author, coverURL, and content
       return (
-        <div>
+        <div className="post-edit-container">
           {renderButtons()}
-          <input value={title}
+          <input className="post-edit-title" value={title}
           onChange={e => setTitle(e.target.value)}/>
-          <input value={author}
+          <input className="post-edit-author" value={author}
           onChange={(e => setAuthor(e.target.value))}/>
-          <input value={coverURL} 
+          <input className="post-edit-cover" value={coverURL} 
           onChange={e => setCoverURL(e.target.value)}/>
-          <textarea value={content}
+          <textarea className="post-edit-content" value={content}
           onChange={e => setContent(e.target.value)}/>
         </div>
       );
     }
 
     else {
-  return (
-      <div>
-        {renderButtons()}
-        <h1>{title}</h1>
-        <img src={coverURL} />
-        <p>{content}</p>
-        {renderComments()}
-        
-        <input value={commentDraft} onChange={e => setCommentDraft(e.target.value)}/>
-        <input value={commentDraftAuthor} onChange={e => setCommentDraftAuthor(e.target.value)} />
-        <button onClick={handleCommentSubmission}> save comment</button>
-      </div>
-    );
+      return (
+        <div className="post-container">
+          {renderButtons()}
+          <h1 className="post-title">{title}</h1>
+          <img className="post-cover" src={coverURL} />
+          <p className="post-content">{content}</p>
+          <div className="post-comments">{renderComments()}</div>
+          <div className="post-comment-form">
+            <input className="comment-input" value={commentDraft} onChange={e => setCommentDraft(e.target.value)}/>
+            <input className="comment-author-input" value={commentDraftAuthor} onChange={e => setCommentDraftAuthor(e.target.value)} />
+            <button className="comment-submit-btn" onClick={handleCommentSubmission}> save comment</button>
+          </div>
+        </div>
+      );
     }
   
     

@@ -12,40 +12,40 @@ import NewPost from './components/newpost.jsx';
 
 
 const About = (props) => {
-  return <div> All there is to know about me </div>;
+  return <div className="about-page"> All there is to know about me </div>;
 };
 const Welcome = (props) => {
   return (
-    <div>
-      <div>
+    <div className="welcome-page">
+      <div className="welcome-controls">
         <Counter />
         <Controls />
       </div>
-    <p>Welcome</p>
+      <p className="welcome-message">Welcome</p>
     </div>
   );
 };
 
 const Test = (props) => {
   const { id } = useParams();
-  return <div> ID: {id} </div>;
+  return <div className="test-page"> ID: {id} </div>;
 };
 
 const FallBack = (props) => {
-  return <div>URL Not Found</div>;
+  return <div className="fallback-page">URL Not Found</div>;
 };
 
 const Nav = (props) => {
   return (
-    <nav>
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/test/id1">test id1</NavLink></li>
-        <li><NavLink to="/test/id2">test id2</NavLink></li>
+    <nav className="main-nav">
+      <ul className="nav-list">
+        <li className="nav-item"><NavLink to="/">Home</NavLink></li>
+        <li className="nav-item"><NavLink to="/about">About</NavLink></li>
+        <li className="nav-item"><NavLink to="/test/id1">test id1</NavLink></li>
+        <li className="nav-item"><NavLink to="/test/id2">test id2</NavLink></li>
       </ul>
-      <NavLink to="/">My Super Awesome Blog</NavLink>
-      <NavLink to="/posts/new">new post</NavLink>
+      <NavLink className="nav-title" to="/">My Super Awesome Blog</NavLink>
+      <NavLink className="nav-newpost" to="/posts/new">new post</NavLink>
     </nav>
   );
 };
@@ -53,7 +53,7 @@ const Nav = (props) => {
 const App = (props) => {
   return (
     <BrowserRouter>
-      <div>
+      <div className="app-container">
         <Nav />
         <Routes>
   <Route path="/" element={<Posts/>} />
