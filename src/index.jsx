@@ -9,11 +9,8 @@ import Controls from './components/controls.jsx';
 import Posts from './components/posts.jsx';
 import Post from './components/post.jsx';
 import NewPost from './components/newpost.jsx';
+import About from './components/about.jsx';
 
-
-const About = (props) => {
-  return <div className="about-page"> All there is to know about me </div>;
-};
 const Welcome = (props) => {
   return (
     <div className="welcome-page">
@@ -41,11 +38,11 @@ const Nav = (props) => {
       <ul className="nav-list">
         <li className="nav-item"><NavLink to="/">Home</NavLink></li>
         <li className="nav-item"><NavLink to="/about">About</NavLink></li>
-        <li className="nav-item"><NavLink to="/test/id1">test id1</NavLink></li>
-        <li className="nav-item"><NavLink to="/test/id2">test id2</NavLink></li>
+        {/* <li className="nav-item"><NavLink to="/test/id1">test id1</NavLink></li> */}
+        {/* <li className="nav-item"><NavLink to="/test/id2">test id2</NavLink></li> */}
       </ul>
-      <NavLink className="nav-title" to="/">My Super Awesome Blog</NavLink>
-      <NavLink className="nav-newpost" to="/posts/new">new post</NavLink>
+      <NavLink className="nav-title" to="/">Kashmiri Voices</NavLink>
+      {/* <NavLink className="nav-newpost" to="/posts/new">new post</NavLink> */}
     </nav>
   );
 };

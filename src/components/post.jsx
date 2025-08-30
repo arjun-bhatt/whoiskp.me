@@ -2,6 +2,9 @@ import useStore from '../store';
 import { useNavigate, useParams } from 'react-router';
 import React from 'react';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+
+export const prod = true;
 
 function Post(props) {
     const { postID } = useParams();
@@ -17,8 +20,6 @@ function Post(props) {
     const [commentDraft, setCommentDraft] = useState('my comment here');
     const [isEditing, startEditing] = useState(false);
     const [author, setAuthor] = useState(post.author);
-
-    const prod = true;
 
     const navigate = useNavigate();
     
@@ -50,7 +51,8 @@ function Post(props) {
         comments.map( comment => {
           return (
             <div key={comment._id}>
-              {comment.body}
+              
+              <ReactMarkdown>{comment.body}</ReactMarkdown>
               {comment.author}
             </div>
           );}
@@ -93,7 +95,12 @@ function Post(props) {
           {renderButtons()}
           <h1 className="post-title">{title}</h1>
           <img className="post-cover" src={coverURL} />
-          <p className="post-content">{content}</p>
+          <ReactMarkdown>
+            {content}
+          </ReactMarkdown>
+          <br></br>
+          <br></br>
+          <br></br>
           <div className="post-comments">{renderComments()}</div>
           <div className="post-comment-form">
             <input className="comment-input" value={commentDraft} onChange={e => setCommentDraft(e.target.value)}/>
