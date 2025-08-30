@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/arjun-bhatt/whoiskp.me.git"
   },
-
   "license": "ISC",
   "author": "arjun",
   "type": "commonjs",
