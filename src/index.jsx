@@ -92,26 +92,26 @@ export async function getPostListJSX() {
     ));
 }
 
-// Returns JSX for a single post (or not found message)
-export async function getSinglePostJSX(postId) {
-    const posts = await fetchPosts();
-    const post = posts.find(p => p.id === postId);
+// // Returns JSX for a single post (or not found message)
+// export async function getSinglePostJSX(postId) {
+//     const posts = await fetchPosts();
+//     const post = posts.find(p => p.id === postId);
 
-    if (!post) {
-        return <p>Post not found.</p>;
-    }
+//     if (!post) {
+//         return <p>Post not found.</p>;
+//     }
 
-    return (
-        <>
-            <a className="back-button" href="index.html">&larr; Back to Home</a>
-            <article>
-                <h2>{post.title}</h2>
-                <p><strong>{post.author}</strong> — {post.date}</p>
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            </article>
-        </>
-    );
-}
+//     return (
+//         <>
+//             <a className="back-button" href="index.html">&larr; Back to Home</a>
+//             <article>
+//                 <h2>{post.title}</h2>
+//                 <p><strong>{post.author}</strong> — {post.date}</p>
+//                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
+//             </article>
+//         </>
+//     );
+// }
 
 const header = () => {return(
 <header>
@@ -130,7 +130,6 @@ const footer = () => {return( <footer>
 const htmlBoilerPlate = () => {
   return (header(), footer());
 };
-
 
 const root = createRoot(document.getElementById('main'));
 root.render(<App />);

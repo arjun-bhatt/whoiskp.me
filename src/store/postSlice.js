@@ -4,14 +4,13 @@ import axios from 'axios';
 
 export default function createPostSlice(set, get) {
   return {
-    isEditing: false,
-    edit: () => set(({postSlice: draftState}) => {draftState.isEditing = !draftState.isEditing;}),
     all: [],
-
     current: {},
-    fetchPost: async (id) => {
-      const response = await axios.get(`${ROOT_URL}/posts/${id}`);
+
+    fetchPost: async (ID) => {
+      const response = await axios.get(`${ROOT_URL}/posts/${ID}`);
       console.log(response);
+      set(({postSlice: draftState}) => {draftState.current = draftState.postSlice.all.findIndex(p => p.id === ID);});
     // GET
     // takes the ID of the post to fetch from router params
     },
@@ -54,6 +53,11 @@ export default function createPostSlice(set, get) {
       // const posts = await response.json();
       set((draftState) => { draftState.postSlice.all = response.data; }, false, 'postSlice/fetchAllPosts');
     },
-    addPost: (newPost) => set((draftState) => { draftState.postSlice.all.push(newPost); }, false, 'postSlice/addPost'),
+    addPost: async (newPost) => {
+      console.log('addPost method called in slice!!');
+      const response = await axios.post(`${ROOT_URL}/posts`, newPost);
+      console.log('in addPost method, passed', newPost, 'response =', response);
+      set((draftState) => { draftState.postSlice.all.push(newPost); },false, 'postSlice/addPost');
+    }
   };
-}
+  }
