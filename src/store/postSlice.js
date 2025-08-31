@@ -33,7 +33,7 @@ export default function createPostSlice(set, get) {
       }, false, 'postSlice/updatePost');
     } else {
     // handle error if needed
-    console.error('Failed to update post:', response);
+    // console.error('Failed to update post:', response);
     }    // if response good, update state, else return error
 
     },
@@ -49,12 +49,12 @@ export default function createPostSlice(set, get) {
           // GET
     // would need pagination but for now we'll just get them all
       const response = await axios.get(`${ROOT_URL}/posts`);
-      console.log('response from server after fetchallposts =', response);
+      // console.log('response from server after fetchallposts =', response);
       // const posts = await response.json();
       set((draftState) => { draftState.postSlice.all = response.data; }, false, 'postSlice/fetchAllPosts');
     },
     addPost: async (newPost) => {
-      console.log('addPost method called in slice!!');
+      // console.log('addPost method called in slice!!');
       const response = await axios.post(`${ROOT_URL}/posts`, newPost);
       console.log('in addPost method, passed', newPost, 'response =', response);
       set((draftState) => { draftState.postSlice.all.push(newPost); },false, 'postSlice/addPost');

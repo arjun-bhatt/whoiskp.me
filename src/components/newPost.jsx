@@ -36,7 +36,7 @@ const newPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit hit, addPost =', addPost);
+    // console.log('submit hit, addPost =', addPost);
     await addPost(newPostParts());
     navigate('/');
     // setTitle('');

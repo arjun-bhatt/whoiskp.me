@@ -63,7 +63,7 @@ function Post(props) {
     const handleCommentSubmission = async () => {
       // console.log('submitting comment, we got comments', comments, 'commentDraft', commentDraft, 'and our new list', comments.concat(commentDraft));
       const newCommentsArray = comments.concat({body: commentDraft, author: commentDraftAuthor});
-      console.log('newCommentsarray =', newCommentsArray);
+      // console.log('newCommentsarray =', newCommentsArray);
       await updatePost({id: postID, comments: newCommentsArray});
       setComments(newCommentsArray);
     };
