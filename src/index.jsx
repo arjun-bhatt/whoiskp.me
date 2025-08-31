@@ -8,7 +8,7 @@ import Counter from './components/counter.jsx';
 import Controls from './components/controls.jsx';
 import Posts from './components/posts.jsx';
 import Post from './components/post.jsx';
-import NewPost from './components/newpost.jsx';
+import NewPost from './components/newPost.jsx';
 import About from './components/about.jsx';
 
 const Welcome = (props) => {
